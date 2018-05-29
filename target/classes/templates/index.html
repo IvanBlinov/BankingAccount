@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Person List</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <h2>Transactions list</h2>
+        <ul class="collapsible">
+            <li th:each ="transaction : ${transactions}">
+                <div class="collapsible-header" th:classappend="${transaction.type == T(com.blinov.agileengine.model.enums.TransactionType).credit} ? credit : debit"
+                     th:utext="'ID: ' + ${transaction.id}">...</div>
+                <div class="collapsible-body" th:classappend="${transaction.type == T(com.blinov.agileengine.model.enums.TransactionType).credit} ? credit : debit">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td th:utext="${transaction.id}">...</td>
+                                <td th:utext="${transaction.type}">...</td>
+                                <td th:utext="${transaction.amount}">...</td>
+                                <td th:utext="${transaction.effectiveDate}">...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" th:src="@{/js/materialize.js}"></script>
+        <script type="text/javascript" th:src="@{/js/functions.js}"></script>
+    </body>
+</html>
