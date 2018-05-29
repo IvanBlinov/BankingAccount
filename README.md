@@ -17,7 +17,7 @@ docker
 There is two ways to run this application.
 
 ### Java
-To run it using java you shuld just run the .jar file
+To run it using java you should just run the .jar file
 ```
 java -jar target/agileengine-1.0.jar
 ```
